@@ -1,0 +1,315 @@
+// variaveis
+$cinza-escuro: #37474F;
+$laranja: #FF3D00;
+$cor-texto: #616161;
+$width-menu: 250px;
+$width-conteudo: 750px;
+$width-total: 1000px;
+$header-height: 80px;
+$centralizado: 0 auto;
+
+// mixins
+@mixin link-menu-color($normal, $hover) {
+    //por padrão a cor do link será $normal
+    color: $normal;
+    //ao hover no elemento passará a receber o que foi passado em $hover
+    &:hover{color: $hover;}
+}
+@mixin default {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    text-decoration: none;
+    outline: none;
+    font-family: arial;
+    box-sizing: border-box;
+}
+
+
+// codigo
+*{
+    @include default;
+}
+
+header{
+    width: $width-total;
+    height: $header-height;
+    background-color: $cinza-escuro;
+    margin: $centralizado;
+}
+#logo{
+    width: $width-menu;
+    background-color: #fff;
+    text-align: center;
+    height: $header-height;
+    padding-top: 25px;
+    font-size: 22px;
+    font-weight: bold;
+    font-family: arial-serif;
+    span{
+        color: $laranja;
+    }
+    letter-spacing: -2px;
+    float: left;
+}
+#telefone{
+    border-radius: 5px;
+    padding: 8px 15px 8px 15px;
+    width: 180px;
+    float: left;
+    border: 2px groove #546E7A;
+    color: #fff;
+    font-size: 14px;
+    margin:{
+        top:20px;
+        left: 50px;
+    }
+}
+#pesquisa{
+    float: right;
+    margin:{
+        top:28px;
+        right: 20px;
+    }
+    input[type="text"]{
+        background-color: $cinza-escuro;
+        border: 2px ridge #546E7A;
+        border-radius: 5px;
+        height: 25px;
+        width: 200px;
+        color: #fff;
+        text-indent: 5px;
+        font-family: arial
+    }
+    input[type="button"]{
+        width: 25px;
+        height: 25px;
+        border-radius: 5px;
+        background-color: $cinza-escuro;
+        color: #fff;
+        border: 2px ridge #546E7A;
+        cursor: pointer;
+        &:hover{
+            background-color: #fff;
+            border:2px ridge #546E7A;
+            color: $cinza-escuro;
+        }
+    }
+
+}
+
+section{
+    width: $width-total;
+    height: 900px;
+    margin: $centralizado;
+}
+.estilo{
+    width: 100%;
+    height: 10px;
+    background-color: $laranja;
+}
+.left{
+    height: 100%;
+    width: $width-menu;
+    float: left;
+    nav{
+        width: 250px;
+        height: auto;
+        background-color: $cinza-escuro;
+        .item label{
+            display: block;
+            padding: 10px;
+            background: $cinza-escuro;
+            font-size: 15px;
+            cursor: pointer;
+            color: #fff;
+            font-weight: bold;
+            transition: .5s;
+            border:{
+                bottom: 1px solid #fff;
+            }
+            &:hover{
+                background: #BF360C;
+                transition: .5s;
+            }
+        }
+        .item ul{
+            width: 100%;
+            overflow: hidden;
+            max-height: 0;
+            transition: .5s;
+
+        }
+        .item ul li a{
+            width: 100%;
+            height: 30px;
+            padding:{
+                top:8px;
+                left: 10px;
+                right: 10px;
+                bottom: 10px;
+            }
+            display: block;
+            background-color: #546E7A;
+            font-size: 14px;
+            color: #fff;
+            &:hover{
+                background-color: $laranja;
+            }
+        }
+
+        .item input:checked ~ ul{
+            height: auto;
+            max-height: 200px;
+            transform: .5s;
+        }
+        .item input{
+            display: none;
+        }
+    }
+
+    .info{
+        background-color: #eee;
+        font-size: 13px;
+        color: $cor-texto;
+        padding:{
+            top:10px;
+            left: 10px;
+            right: 50px;
+            bottom: 10px;
+        }
+        span{
+            font-weight: bold;
+            font-size: 14px;
+        }
+    }
+
+    #news{
+        background-color: $laranja;
+        color: #fff;
+        font-weight: bold;
+        padding:{
+            left: 10px;
+            top: 5px;
+            bottom: 5px;
+        }
+        width: $width-menu;
+        border: 1px solid #DD2C00;
+
+    }
+
+    .read-more{
+        a{
+            @include link-menu-color($laranja, #000);
+        }
+        padding:{
+            top:10px;
+            left: 15px;
+            right: 50px;
+            bottom: 10px;
+        }
+        font-size: 13px;
+    }
+
+    .newsletter{
+        width: $width-menu;
+        height: 100px;
+        background-color: #ddd;
+        div{
+            width: $width-menu;
+            padding:{
+                left: 10px;
+                top: 5px;
+                bottom: 5px;
+            }
+            background-color: $cinza-escuro;
+            color: #fff;
+            font-weight: bold;
+        }
+        input[type="text"]{
+            background-color: #fff;
+            border: 1px ridge #546E7A;
+            border-radius: 5px;
+            height: 25px;
+            width: 200px;
+            color: $cinza-escuro;
+            text-indent: 5px;
+            font-family: arial;
+            margin-left: 10px;
+        }
+        input[type="button"]{
+            width: 30px;
+            height: 25px;
+            border-radius: 5px;
+            background-color: #fff;
+            color: $cinza-escuro;
+            border: 1px ridge #546E7A;
+            cursor: pointer;
+            &:hover{
+                background-color: #fff;
+                border:2px ridge #546E7A;
+                color: $cinza-escuro;
+            }
+        }
+        span{
+            margin-left: 10px;
+        }
+    }
+}
+
+
+.right{
+    width: $width-conteudo;
+    height: 100%;
+    float: right;
+    .slider{
+        width: $width-conteudo;
+        height: 300px;
+        img{
+            width: $width-conteudo;
+            height: 300px;
+        }
+    }
+    .texto{
+        padding: 20px;
+        font-size: 15px;
+        text-align: justify;
+        strong{
+            font-size: 17px;
+        }
+        span{
+            color: $laranja;
+            font-size: 15px;
+            font-weight: bold;
+        }
+        img{
+            width: 130px;
+            height: 100px;
+            float: left;
+            margin-right: 20px;
+        }
+    }
+    ul{
+        width: 470px;
+        height: 20px;
+        margin: $centralizado;
+        margin-top: 10px;
+        li{
+            float: left;
+            margin-left: 30px;
+            font-size: 15px;
+            a{
+                @include link-menu-color($laranja, #000);
+            }
+        }
+    }
+}
+
+footer{
+    width: $width-total;
+    height: 30px;
+    margin: $centralizado;
+    text-align: center;
+    color: $cinza-escuro;
+    font-size: 12px;
+}
